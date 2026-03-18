@@ -7,8 +7,7 @@ const compositions = [
     description: 'Крупные листья создают тропическую атмосферу. Разные высоты — фокус на архитектуре листьев.',
     placement: 'Угол у окна',
     light: 'Яркий рассеянный',
-    emoji: '🌴',
-    bg: 'hsl(var(--sage-pale))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/6baacd47-1891-4e0b-87b1-d0707b50e831.jpg',
   },
   {
     id: 2,
@@ -18,8 +17,7 @@ const compositions = [
     description: 'Три разных текстуры, один монохромный горшок. Меньше — значит больше.',
     placement: 'Рабочий стол, полка',
     light: 'Любое',
-    emoji: '🪴',
-    bg: 'hsl(var(--accent))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/8417828f-aee8-4265-970c-67f852176bab.jpg',
   },
   {
     id: 3,
@@ -29,8 +27,7 @@ const compositions = [
     description: 'Ампельные растения на разных уровнях создают живой зелёный фон. Легко в уходе.',
     placement: 'Стена, полки',
     light: 'Умеренный',
-    emoji: '🌿',
-    bg: 'hsl(42 25% 91%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/e46cd2d2-4ae7-4459-b0d1-4c9563e9cddf.jpg',
   },
   {
     id: 4,
@@ -40,8 +37,7 @@ const compositions = [
     description: 'Влаголюбивые растения процветают в ванной. Создают спа-атмосферу.',
     placement: 'Ванная комната',
     light: 'Рассеянный, тень',
-    emoji: '🌸',
-    bg: 'hsl(var(--sage-pale))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/fc7918d7-2e20-473d-9d28-6206bcb28368.jpg',
   },
   {
     id: 5,
@@ -51,8 +47,7 @@ const compositions = [
     description: 'Пряные травы в одинаковых белых горшочках — красиво и практично.',
     placement: 'Подоконник кухни',
     light: 'Яркое прямое',
-    emoji: '🌱',
-    bg: 'hsl(var(--accent))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/55ad240e-1469-4c86-9c2f-86bdfa6969ba.jpg',
   },
   {
     id: 6,
@@ -62,8 +57,7 @@ const compositions = [
     description: 'Ниспадающие лианы с макраме-подвесками. Игра с текстурами и уровнями.',
     placement: 'Подвесные горшки',
     light: 'Умеренный',
-    emoji: '🪢',
-    bg: 'hsl(42 25% 91%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/c68679c7-f4ed-4235-9a03-011fa7c4582a.jpg',
   },
 ];
 
@@ -120,12 +114,14 @@ export default function CompositionsSection() {
               key={comp.id}
               className="plant-card bg-white border border-stone overflow-hidden group cursor-pointer"
             >
-              {/* Color top */}
-              <div
-                className="h-32 flex items-center justify-center text-5xl"
-                style={{ background: comp.bg }}
-              >
-                {comp.emoji}
+              {/* Photo */}
+              <div className="h-48 overflow-hidden relative">
+                <img
+                  src={comp.image}
+                  alt={comp.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               <div className="p-6">
