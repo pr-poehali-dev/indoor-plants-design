@@ -1,14 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import CompositionsSection from '@/components/CompositionsSection';
+import PotsSection from '@/components/PotsSection';
+import InspirationSection from '@/components/InspirationSection';
+import CatalogSection from '@/components/CatalogSection';
+import Footer from '@/components/Footer';
 
-const Index = () => {
+type Section = 'home' | 'compositions' | 'pots' | 'inspiration' | 'catalog';
+
+export default function Index() {
+  const [activeSection, setActiveSection] = useState<Section>('home');
+
+  const handleNavigate = (section: string) => {
+    setActiveSection(section as Section);
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-[hsl(var(--warm-white))]">
+      <Header activeSection={activeSection} onNavigate={handleNavigate} />
+
+      <main>
+        <div id="home">
+          <HeroSection onNavigate={handleNavigate} />
+        </div>
+
+        <div id="compositions">
+          <CompositionsSection />
+        </div>
+
+        <div id="pots">
+          <PotsSection />
+        </div>
+
+        <div id="inspiration">
+          <InspirationSection />
+        </div>
+
+        <div id="catalog">
+          <CatalogSection />
+        </div>
+      </main>
+
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
-};
-
-export default Index;
+}
