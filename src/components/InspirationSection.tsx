@@ -4,54 +4,48 @@ const rooms = [
     name: 'Гостиная в стиле бохо',
     plants: ['Монстера', 'Фикус лировидный', 'Пальма арека'],
     key: 'Крупные листья + плетёные горшки + деревянные акценты',
-    emoji: '🛋️',
     tags: ['Бохо', 'Просторно', 'Тропики'],
-    bg: 'hsl(38 30% 88%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/9947afde-3ac5-4fd1-bef6-d3d9b5ac2bc7.jpg',
   },
   {
     id: 2,
     name: 'Кабинет с акцентом на рабочее место',
     plants: ['Сансевиерия', 'Замиокулькас', 'Суккуленты'],
     key: 'Неприхотливые + улучшают воздух + не отвлекают',
-    emoji: '💻',
     tags: ['Минимализм', 'Рабочее место', 'Просто'],
-    bg: 'hsl(var(--sage-pale))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/e3f72d0a-b6e4-4adf-a2ce-c3de40b78d7e.jpg',
   },
   {
     id: 3,
     name: 'Спальня-оазис',
     plants: ['Лаванда', 'Сциндапсус', 'Хлорофитум'],
     key: 'Очищают воздух + мягкие формы + без цветов с резким запахом',
-    emoji: '🛏️',
     tags: ['Спальня', 'Спокойствие', 'Уют'],
-    bg: 'hsl(260 15% 90%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/9a10bf16-ed78-4578-ae7d-0089d9a29956.jpg',
   },
   {
     id: 4,
     name: 'Кухня-прованс',
     plants: ['Розмарин', 'Базилик', 'Мята', 'Лавр'],
     key: 'Травы на подоконнике в одинаковых горшках — декор и польза',
-    emoji: '🍳',
     tags: ['Кухня', 'Прованс', 'Полезно'],
-    bg: 'hsl(80 20% 88%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/d5447bed-8907-4fc1-821c-10ccde109d3f.jpg',
   },
   {
     id: 5,
     name: 'Ванная комната-спа',
     plants: ['Орхидея', 'Папоротник', 'Тропические мхи'],
     key: 'Влажность + тепло = идеальные условия. Белые горшки, натуральный камень.',
-    emoji: '🛁',
     tags: ['Ванная', 'СПА', 'Влажность'],
-    bg: 'hsl(var(--accent))',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/71f8a06f-70b1-4463-a2ec-bf14e044e08f.jpg',
   },
   {
     id: 6,
     name: 'Скандинавская студия',
     plants: ['Юкка', 'Кактус', 'Потос'],
     key: 'Белые стены + деревянный пол + минимум растений, максимум эффекта',
-    emoji: '🏠',
     tags: ['Скандинавский', 'Студия', 'Минимализм'],
-    bg: 'hsl(200 10% 90%)',
+    image: 'https://cdn.poehali.dev/projects/6e47e170-1327-430e-8ce3-3e27dd07f30f/files/079812f3-5cbc-48c5-9884-4e5ec6a0a41d.jpg',
   },
 ];
 
@@ -93,11 +87,13 @@ export default function InspirationSection() {
               key={room.id}
               className="plant-card bg-white border border-stone overflow-hidden cursor-pointer group"
             >
-              <div
-                className="h-40 flex items-center justify-center text-6xl relative"
-                style={{ background: room.bg }}
-              >
-                {room.emoji}
+              <div className="h-48 relative overflow-hidden">
+                <img
+                  src={room.image}
+                  alt={room.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute top-3 right-3 flex gap-1.5 flex-wrap justify-end">
                   {room.tags.map((tag) => (
                     <span
